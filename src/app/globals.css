@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* คราม (indigo) brand colours */
+@theme {
+  --color-kram-50: #eef3fb;
+  --color-kram-100: #d9e3f5;
+  --color-kram-200: #b5c8ea;
+  --color-kram-300: #87a5da;
+  --color-kram-400: #5a80c6;
+  --color-kram-500: #3c62ad;
+  --color-kram-600: #2d4d8f;
+  --color-kram-700: #263f74;
+  --color-kram-800: #21355f;
+  --color-kram-900: #1b2b4d;
+  --font-sans: var(--font-thai), ui-sans-serif, system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-slate-50);
+  color: var(--color-slate-900);
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors select-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-kram-700 text-white hover:bg-kram-800;
+  }
+  .btn-secondary {
+    @apply border border-slate-300 bg-white text-slate-800 hover:bg-slate-100;
+  }
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+  .btn-ghost {
+    @apply text-slate-700 hover:bg-slate-100;
+  }
+  .btn-lg {
+    @apply px-5 py-3 text-base;
+  }
+  .btn-sm {
+    @apply px-2.5 py-1 text-xs;
+  }
+  .input {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none placeholder:text-slate-400 focus:border-kram-500 focus:ring-2 focus:ring-kram-200 disabled:bg-slate-100;
+  }
+  .label {
+    @apply mb-1 block text-sm font-medium text-slate-700;
+  }
+  .card {
+    @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+  }
+  .table {
+    @apply w-full text-sm;
+  }
+  .table th {
+    @apply border-b border-slate-200 bg-slate-50 px-3 py-2 text-left font-medium whitespace-nowrap text-slate-600;
+  }
+  .table td {
+    @apply border-b border-slate-100 px-3 py-2 align-top;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium;
+  }
+  .num {
+    @apply text-right tabular-nums;
+  }
+}
+
+/* Printing happens from the /print pages; hide app chrome just in case. */
+@media print {
+  html,
+  body {
+    background: white;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
